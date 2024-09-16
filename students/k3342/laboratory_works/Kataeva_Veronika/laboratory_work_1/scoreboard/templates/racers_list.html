@@ -1,0 +1,23 @@
+<body>
+    <div class="main">
+    	{% load index %}
+        <h1> Scoreboard of Racers </h1>
+        {% for racer in racers %}
+        <h3> <a href="{% url 'racers_comments' pk=racer.id %}">
+        {{ racer.first_name }}
+        {{ racer.middle_name }} 
+        {{ racer.last_name }} </a>
+        </h3>
+        <i> {{ racer.description }} </i> <br/> <br/>
+        Last win : {{ races|index:racer.id }} <br/>
+        Car : {{ cars|index:racer.car_id }} <br/>
+        Experience : {{ racer.experience }} years <br/>
+        Team : {{ teams|index:racer.team_id }} <br/>
+        Grade : {{ racer.grade_of_license }} <br/>
+
+        <hr/>
+  
+        {% endfor %}
+  
+    </div>
+</body>

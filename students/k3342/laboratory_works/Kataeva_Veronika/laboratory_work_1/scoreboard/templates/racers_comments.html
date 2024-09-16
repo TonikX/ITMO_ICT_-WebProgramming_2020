@@ -1,0 +1,41 @@
+<body>
+    <div class="main">
+
+        {% load index %}
+        
+        <h3>
+        {{ racer.first_name }} 
+        {{ racer.middle_name }} 
+        {{ racer.last_name }}
+        </h3>
+        <i> {{ racer.description }} </i> <br/> <br/>
+        Last win : {{ races|index:racer.id }} <br/>
+        Car : {{ cars|index:racer.car_id }} <br/>
+        Experience : {{ racer.experience }} years <br/>
+        Team : {{ teams|index:racer.team_id }} <br/>
+        Grade : {{ racer.grade_of_license }} <br/>
+
+        <h3> Comment Section </h3>
+
+        {% for comment in comments %}
+            <i> # {{ comment.tag }} </i> <br/>
+            {{ comment.text }} <br/>
+            <p style='color:#808080'> Posted by <u>{{ comment.user }}</u> 
+            {{ comment.created }} </p> <br/>
+        {% empty %} 
+            <h4>No comments! Feel free to leave the first one!</h4>
+
+        {% endfor %}
+
+        {% if user.is_active %}
+            <form action="" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Post</button>
+            </form>
+        {% else %}
+        <h4>Please, login to leave a comment!</h4>
+        {% endif %}
+  
+    </div>
+</body>

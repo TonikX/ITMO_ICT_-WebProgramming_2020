@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+        newspapers_db_db:
+                image: postgres
+                ports:
+                        - "5432:5432"
+                environment:
+                        - POSTGRES_DB=newspapers_db
+                        - POSTGRES_USER=postgres
+                        - POSTGRES_PASSWORD=Johnny341*
+
+        backend:
+                container_name: backend_newspapers
+                build:
+                        context: ./newspapers
+                        dockerfile: Dockerfile
+
+                command: bash -c "sleep 3 &&
+                        python manage.py makemigrations && python manage.py migrate &&
+                        python manage.py runserver 0.0.0.0:8000";
+                volumes:
+                        - ./newspapers:/newspapers
+                ports:
+                        - "8000:8000"
+                depends_on:
+                        - newspapers_db_db
+
+        frontend:
+                container_name: frontend_newspapers
+                build:
+                        context: ./newspapers-vue
+                        dockerfile: Dockerfile
+
+                command: npm run dev
+                volumes:
+                        - ./newspapers-vue:/newspapers-vue
+                ports:
+                        - "8080:8080"
+                depends_on:
+                        - backend
