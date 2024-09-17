@@ -73,6 +73,8 @@ TEMPLATES = [
     },
 ]
 
+AUTH_USER_MODEL = 'project_first_app.CarOwner'
+
 WSGI_APPLICATION = 'django_project_Reybandt.wsgi.application'
 
 

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/students/k3342/laboratory_works/Reybandt Alexandr/laboratory_work_2/AirportAdmin" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/students/k3342/practical_works/Reybandt Alexandr/DockerStack" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/students/k3342/practical_works/Reybandt Alexandr/docker" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/students/k3342/practical_works/Reybandt Alexandr/docker/DockerStack" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/students/k3342/practical_works/Reybandt Alexandr/simple_django_web_project" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/students/k3342/practical_works/Reybandt Alexandr/simple_django_web_project/django_project_Reybandt" vcs="Git" />
+  </component>
+</project>

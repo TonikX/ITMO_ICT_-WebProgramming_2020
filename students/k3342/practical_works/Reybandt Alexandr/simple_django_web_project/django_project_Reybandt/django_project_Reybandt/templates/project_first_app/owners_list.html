@@ -5,10 +5,13 @@
 {% block content %}
 <body>
 	<div class="main">
-		<h3>Список владельцев (реализован функционально):</h3>
+		<h3>Список владельцев (реализован с помощью расширения <i>AbstractUser</i>):</h3>
 		{% for data in dataset %}
 			Имя: <em>{{ data.first_name }} {{data.last_name}}</em><br>
 			Дата рождения: <em>{{ data.date_of_birth }}</em><br>
+            Номер пасспорта: <em>{{ data.passport_number }}</em><br>
+            Домашний адрес: <em>{{ data.home_address }}</em><br>
+            Национальность: <em>{{ data.nationality }}</em><br>
 			<hr>
 		{% endfor %}
 	</div>	
