@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>All owners</title>
+</head>
+<body>
+  {% block content %}
+    {% for owner in owners %}
+      <p>{{owner.name}}<p>
+      <p>{{owner.surname}}<p>
+      <p>{{owner.birthday}}<p>
+      <br>
+  {% endfor %}
+  {% endblock %}
+
+</body>

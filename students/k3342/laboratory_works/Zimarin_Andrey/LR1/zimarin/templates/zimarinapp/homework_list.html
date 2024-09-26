@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Список домашних заданий</title>
+</head>
+<body>
+    <form><input type="button" value="Выйти из аккаунта"
+                         onClick='location.href="../../accounts/logout/"'>
+            </form>
+    <hr>
+    <ul>
+
+        {% for object in object_list %}
+
+        <li>Предмет: {{object.discipline}}, Преподаватель: {{object.teacher}}. <br>
+            Дата выдачи: {{object.issue_date}}. <br>
+            Время на выполнение: {{object.time_for_doing}}. <br>
+            Текст задания: {{object.task_text}} <br>
+            <form><input type="button" value="Перейти к записи и комментариям"
+                         onClick='location.href="{{object.id}}"'>
+            </form>
+
+            <hr></li>
+
+        {% empty %}
+        <li>Домашних заданий не найдено.</li>
+        {% endfor %}
+
+    </ul>
+</body>
+</html>

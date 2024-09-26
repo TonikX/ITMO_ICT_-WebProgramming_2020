@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Car Owners</title>
+</head>
+<body>
+  {% block content %}
+    {% for car in cars %}
+      <p>{{car.number}}<p>
+      <p>{{car.brand}}<p>
+      <p>{{car.model}}<p>
+      <br>
+  {% endfor %}
+  {% endblock %}
+
+</body>
+</html>
