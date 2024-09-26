@@ -12,11 +12,14 @@ def review(request,ho_id):
     post = Hotel.objects.get(pk=ho_id)
     comments = post.comments.filter(active=True)
     new_comment = None
-    comment_form = CommentForm(data=request.POST)
-    if comment_form.is_valid():
-        new_comment = comment_form.save(commit=False)
-        new_comment.post = post
-        new_comment.save()
+    if request.method == 'POST':
+        comment_form = CommentForm(data=request.POST)
+        if comment_form.is_valid():
+            new_comment = comment_form.save(commit=False)
+            new_comment.post = post
+            new_comment.save()
+    else:
+        comment_form = CommentForm()
     try:
         hotell=Hotel.objects.get(pk=ho_id)
     except Hotel.DoesNotExist:

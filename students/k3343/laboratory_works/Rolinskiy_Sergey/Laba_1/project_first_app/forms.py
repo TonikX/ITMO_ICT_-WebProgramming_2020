@@ -6,7 +6,7 @@ from .models import Comment
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
-        fields = ('post','email','name','body','active')
+        fields = ('email','name','body','datein','dateout','rating')
 
 class LoginForm(forms.Form):
     username = forms.CharField()

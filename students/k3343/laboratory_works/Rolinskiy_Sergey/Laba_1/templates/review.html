@@ -5,6 +5,7 @@
     <title>Cars</title>
 </head>
 <body>
+<h2><a href=".">Вернуться</a></h2>
 <ul>
         <li> <b><i>Отель</i></b>:{{hotel.name}} </li>
             <li> <b><i>Адрес</i></b>: {{hotel.address}} </li>
@@ -15,7 +16,7 @@
             <li> <b><i>Владелец</i></b>: {{hotel.owner}} </li>
 {% with comments.count as total_comments %}
   <h2>
-    {{ total_comments }} comment{{ total_comments|pluralize }}
+    {{ total_comments }} review{{ total_comments|pluralize }}
   </h2>
 {% endwith %}
 
@@ -23,20 +24,20 @@
 {% for comment in comments %}
   <div class="comment">
     <p class="info">
-      Comment {{ forloop.counter }} by {{ comment.name }}
+        <b>{{ comment.rating }} points review</b> {{ forloop.counter }} by {{ comment.name }}
       {{ comment.created }}
     </p>
   {{ comment.body|linebreaks }}
   </div>
 {% empty %}
-  <p>There are no comments yet.</p>
+  <p>There are no reviews yet.</p>
 {% endfor %}
 <hr/>
 {% if new_comment %}
-  <h2>Your comment has been added.</h2>
+  <h2>Your review has been added.</h2>
 {% else %}
-  <h2>Add a new comment</h2>
-  <form action="." method="post">
+  <h2>Add your new review</h2>
+  <form method="post">
     {{ comment_form.as_p }}
     {% csrf_token %}
     <p><input type="submit" value="Add comment"></p>

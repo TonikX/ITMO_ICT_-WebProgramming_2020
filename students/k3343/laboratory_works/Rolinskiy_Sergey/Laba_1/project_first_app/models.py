@@ -1,5 +1,5 @@
 from django.db import models
-
+#from django-utils.choices import Choice, Choices
 # Create your models here.
 
 class Hotel(models.Model):
@@ -21,6 +21,12 @@ class Comment(models.Model):
     name = models.CharField(max_length=80)
     email = models.EmailField()
     body = models.TextField()
+    datein=models.DateField(default='2006-06-06')
+    dateout=models.DateField(default='2006-06-06')
+    list=((1,1),(2,2),(3,3)
+          ,(4,4),(5,5),(6,6)
+          ,(7,7),(8,8),(9,9),(10,10))
+    rating=models.IntegerField(max_length=2,choices=list,default='1')
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     active = models.BooleanField(default=True)
